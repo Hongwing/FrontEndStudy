@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Comments | Henry.He</title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+	<div style="margin-bottom: 100px">
+		<span> CountDown | Henry</span>
+		<h1 style="font-size: 5.2em" align="center"> |时间显示|</h1>
+		<h2 id="now_time" align="center"></h2>
+		<form id="timer" method="post" action="">
+			倒计时：<input type="text" name="time" id="hour" placeholder="时[Hour]">
+			<input type="text" name="time" id="minute" placeholder="分[Minutes]">
+			<input type="text" name="time" id="second" placeholder="秒[Seconds]">
+			<!-- <textarea style="font-size: 1.2em" rows="1" id="showtime"></textarea> -->
+			<h1 id="showtime" style="font-size: 3.2em" align="center"> |计时|</h1>
+			<input type="reset" name="Button" onclick="timerReset()" value="重置">
+			<input type="button" name="button" value="停止计时" onclick="timerStop()">
+			<input type="button" name="Button" value="开始计时" onclick="timerStart()">
+		</form>
+		<script type="text/javascript">
+			var time = document.getElementById("now_time");
+			this.setInterval(function() {
+				time.innerHTML = new Date();
+			}, 1000);
+
+			// alert(time.innerHTML);
+
+		</script>
+
+	<hr style="margin-top: 20px; margin-bottom: 20px;">
+
+	<div>
+		<table width="600px" align="center" cellpadding="0" cellspacing="0" border="2px solid black" id="comment">
+			<tr>
+				<td width="18%" height="27px" align="center" bgcolor="#E5BB93">评论人：</td>
+				<td width="82%" align="center" bgcolor="#E5BB93">评论内容</td>
+			</tr>
+		</table>
+	</div>	
+	<div style="margin-top: 20px; line-height: 5px; ">
+		<form name="form_prompt" method="post" action="">
+			评论人：&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="person" size="40px" id="person">	
+			<br>
+			评论内容：<textarea name="content" rows="6" cols="60" id="content"></textarea>
+			<br>
+			<input name="Button" type="button" value="发表" onclick="addElement()">
+			<input name="Button" type="reset" value="重置" >
+			<input name="Button" type="button" value="删除第一条评论" onclick="deleteElementFromHead()">
+			<input name="Button" type="button" value="删除最后一条评论" onclick="deleteElementFromTail()">
+			<input  name="Button" type="button" value="页面节点数" onclick="show()">
+		</form>
+	</div>
+
+	<hr style="margin-top: 20px; margin-bottom: 20px;">
+
+	<div>
+		<span> Date Checker | Henry</span>
+		<form name="data_check" method="post" action="">
+			待检查日期：<input type="text" name="Check" placeholder="日期：例2017-09-30" id="date">
+			<textarea id="status" rows="1" disabled="true"></textarea>
+			<input type="reset" name="Button" value="重置" > 
+			<input type="button" name="Button" value="检查" onclick="checkDate()">
+		</form>
+	</div>
+
+	<hr style="margin-top: 20px; margin-bottom: 20px;">
+
+
+	</div>
+
+</body>
+	<script type="text/javascript">
+
+		/**
+		* countdown
+		*/
+		// 假设输入正常
+		var clock = null;
+		// var h = document.getElementById("hour").value;
+		// var m = document.getElementById("minute").value;
+		// var s = document.getElementById("second").value;
+		var show = document.getElementById("showtime");
+		var tempH = null;
+		var tempM = null;
+		var tempS = null;
+
+		function timerStart() {
+		
+		var h = document.getElementById("hour").value;
+		var m = document.getElementById("minute").value;
+		var s = document.getElementById("second").value;
+		s++;
+		// var show = document.getElementById("showtime");
+		// var tempH = null;
+		// var tempM = null;
+		// var tempS = null;
+		
+		// var now = new Date();
+		// var target = new Date(now.seconds+s+1);
+		// var t = show.value;
+		if (clock) {
+			// s = show.innerHTML;
+			// s--;
+			s = tempS;
+			m = tempM;
+			h =tempH;
+		}
+		clock = this.setInterval(function() {
+			//var temp = new Date();
+			if (s == 0) { 
+				if (m != 0) {
+					m--;
+					s = 59;
+				} else {
+					if (h != 0) {
+						h--;
+						m = 59;
+						s = 59
+					} else {
+
+						timerStop();
+						show.innerHTML = "|计时|";
+						document.getElementById("second").focus();
+						return;		
+					}
+				}
+			} else {
+				s--;
+			}
+			// show.innerHTML = s--;
+			
+			tempS = s;
+			tempM = m;
+			tempH = h;
+			show.innerHTML = "| "+h+" 时"+m+" 分"+s+" 秒"+" |"
+		}, 1000);
+		}
+		function timerStop() {
+			this.clearInterval(clock);
+		}
+		function timerReset() {
+			
+			// clock = null;
+			show.innerHTML = "|计时|";
+			timerStop();
+			clock = null;
+		}
+		/**
+		* comment module
+		*/
+		function addElement() {
+
+			var person = document.createTextNode(form_prompt.person.value); // 创建代表评论人的textNode节点
+			var content = document.createTextNode(form_prompt.content.value); // 评论内容node
+
+			// 创建td
+			var td_person = document.createElement("td");
+			var td_content = document.createElement("td");
+			var tr = document.createElement("tr");
+			var tbody = document.createElement("tbody");
+
+			// 将textnode节点内容加入td中，展示
+			td_person.appendChild(person);
+			td_content.appendChild(content);
+			// 将td添加到tr中
+			tr.appendChild(td_person);
+			tr.appendChild(td_content);
+			// 将tr添加到tbody
+			tbody.appendChild(tr);
+			// 获取table
+			var tComment = document.getElementById("comment");
+
+			// 将tbody加入comment table
+			tComment.appendChild(tbody);
+
+			if (form_prompt.person.value === "" ) {
+				alert("名字不能为空！");
+				deleteElementFromTail();
+			}
+
+			form_prompt.person.value = "";
+			form_prompt.content.value = "";
+		}
+
+		function deleteElementFromHead() {
+			// 获得table
+			var tComment = document.getElementById("comment");
+			if (tComment.rows.length > 1) {
+				tComment.deleteRow(1);
+			}
+		}
+
+		function deleteElementFromTail() {
+			// 获得table
+			var tComment = document.getElementById("comment");
+			if (tComment.rows.length > 1) {
+				tComment.deleteRow(tComment.rows.length-1);
+			}
+		}
+		var elementList = "";
+		
+		function printNodes(node) {
+			var total = 0;
+			if (node.nodeType == 1) {
+				total++;
+				elementList = elementList + node.nodeName + "|";
+			}
+			var children = node.childNodes;
+			for (var i = node.firstChild; i != null; i = i.nextSibling) {
+				total += printNodes(i);
+			}
+			return total;
+		}
+		function show() {
+			var number = printNodes(document.body);
+			// var number = document.getElementById("body").childNodes.length;
+			// var elementList = document.getElementById("body").childNodes;
+			elementList = elementList.substring(0, elementList.length-1);
+			alert("该文档包含："+elementList+"等"+number+"个标记！");
+			// elementList = "";
+		}
+
+		/**
+		* date check
+		*/
+		function checkDate() {
+			var status = document.getElementById("status");
+			var result = "";
+			var dateValue = data_check.date.value;
+			if (dateValue === "") { return;}
+			if (isDate(dateValue)) {
+				result = "恭喜你，检验通过！";
+			} else {
+				result = "对不起，检验未通过！";
+			}
+			status.value = result;
+		}
+		function isDate(dateValue) {
+			
+			// alert(dateValue.substring(0,4) == 2017);
+			var year = dateValue.substring(0, 4);
+			var month = dateValue.substring(4, 6);
+			var day = dateValue.substring(6, 8);
+			
+			if (year < 1970 || year > 10000) {
+				return false;
+			}
+
+			if (month < 1 || month > 12) {
+				return false;
+			}
+
+			if (day < 1 || day > 31) {
+				return false;
+			}
+
+			if (year%4==0 && year%100==0 || year%400==0) {
+				// 闰年
+				if (month == 2) {
+					if (day > 29) {
+						return false;
+					}
+				}
+			} else {
+				// 平年
+				if (month == 2) {
+					if (day > 28) {
+						return false;
+					}
+				}
+			}
+			return true;
+		}
+
+	</script>
+</html>

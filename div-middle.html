@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DIV_MIDDLE</title>
+</head>
+<style type="text/css">
+	.parent {
+		// background-color: red;
+		padding: 20px;
+	}
+
+	.child {
+		// background-color: blue;
+		border: 2px solid black;
+		position: relative;
+		min-height: 80px;
+		padding: 10px;
+		text-align: center;
+	}
+
+	#second {
+		margin-top: 20px;
+	}
+
+	.img-div {
+		height: 1500px;
+		width: 60%;
+		background-color: pink;
+		border: 2px solid white;
+		opacity: 1.0;
+		margin: auto;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+	.img-div:hover {
+		opacity: 0.72;
+		border: 5px solid white;
+	}
+
+</style>
+<body>
+	<div class="parent">
+		<div class="child">
+			<h2>Line Line Line</h2>
+			<h2>Line Line Line</h2>
+			<h2>Line Line Line</h2>
+			<h2>Line Line Line</h2>
+			<h2>Line Line Line</h2>
+			<h2>Line Line Line</h2>
+			<h2>Line Line Line</h2>
+		</div>
+		<div id="second" class="child">
+			<div class="img-div"></div>
+		</div>
+	</div>
+</body>
+</html>
