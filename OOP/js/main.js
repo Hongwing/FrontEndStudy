@@ -13,7 +13,7 @@ layui.use(['layer', 'element', 'code'], function() {
 	* dode
 	*/
 	code({
-		title: "C++"
+		title: "执行结果"
 		,height: "4000px"
 		,about: false
 		//,skin: "notepad"
