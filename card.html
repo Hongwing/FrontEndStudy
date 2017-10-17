@@ -26,6 +26,7 @@
 
 	div.paraliod {
 		width: 250px;
+		height: 260px;
 		box-shadow: 0 5px 20px #888;
 		padding: 5px;
 		background-color: white;
@@ -33,11 +34,96 @@
 		float: right;
 		margin-top: 20px;
 	}
+	#pic1 {
+		transform: rotate(30deg);
+	}
+	#pic2 {
+		transform: rotate(60deg);
+	}
+	#pic3 {
+		position: absolute;
+		//transform: matrix3d(0.6, 0);
+		width: 600px;
+		transition: transform 2s;	
+		transition-timing-function: ease;
+		-webkit-transition-timing-function: ease;
+		-webkit-transition: transform 2s;	
+	}
+	#pic3:hover {
+		transform: rotateY(15deg);
+		-webkit-transform: rotateY(15deg);
+		
+	}
+	#perspective {
+		perspective: 250;
+		-webkit-perspective: 250;
+		width: 250px;
+		height: 360px;
+		position: relative;
+		float: right;
+	}
 
 	body {
 		padding: 20px 300px 50px 300px;
+
 	}
 
+	/** Animation */
+	@keyframes myanimation {
+		0% {background-color: cyan;}
+		25% {background-color: pink;}
+		50% {background-color: green;}
+		75% {background-color: skyblue;}
+		100% {background-color: orange;}	
+	}
+
+	@-webkit-keyframes myanimation { /* chrome and safari */
+		0% {background-color: cyan;}
+		25% {background-color: pink;}
+		50% {background-color: green;}
+		75% {background-color: skyblue;}
+		100% {background-color: black;}	
+	}	
+	div#animation {
+		animation: myanimation 5s;
+		animation-iteration-count: infinite;
+		animation-play-state: running;
+		animation-direction: alternate;
+
+		-webkit-animation: myanimation 5s;
+		-webkit-animation-direction: alternate-reverse;
+		-webkit-animation-iteration-count: infinite;
+		
+		background-color: cyan;
+		width: 100%;
+		height: 300px;
+		float: left;
+		margin-bottom: 30px;
+	}
+	div#box {
+		padding: 10px 40px;
+		margin-bottom: 40px;
+		border: 2px solid black;
+		outline: 2px dotted green;
+		outline-offset: 15px;
+
+		width: 300px;
+		resize: both;
+		-webkit-resize: both;
+		overflow: auto;	
+		float: left;
+	}
+	#css-img {
+		border: 1px solid #ddd;
+		padding: 8px;
+		border-radius: 5px;
+		float: left;
+		margin-bottom: 50px;
+	}
+	#css-img:hover {
+		//box-shadow: 0 0 20px 1px rgba(0,140,186,0.5);
+		box-shadow: 0 0 20px 2px black;
+	}
 
 </style>
 <body>
@@ -48,9 +134,28 @@
 		<div id="date" class="date">Oct 16 2017</div>
 	</div>
 
-	<div class="paraliod">
+	<div id="pic1" class="paraliod">
 		<img src="http://www.runoob.com/try/demo_source/rock600x400.jpg" width="250px">
 		<div class="date">Norway</div>
+	</div>
+	<div id="pic2" class="paraliod">
+		<img src="http://www.runoob.com/try/demo_source/rock600x400.jpg" width="250px">
+		<div class="date">Norway</div>
+	</div>
+	<div id="perspective">
+	<div id="pic3" class="paraliod">
+		抽屉菜单侧边实现可采用： transition-timing-function 贝塞尔
+		<img src="http://www.runoob.com/try/demo_source/rock600x400.jpg" width="250px">
+		<div class="date">Norway</div>
+	</div>
+	</div>
+
+	<div id="animation"></div>
+
+	<div id="box">你可以调节大小哦。</div>
+
+	<div id="css-img" >
+		<img src="http://www.runoob.com/try/demo_source/rock600x400.jpg" width="400px">
 	</div>
 
 <script type="text/javascript">
