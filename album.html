@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .responsive {
+            width: 24.9999%;
+            float: left;
+            padding: 5px;
+        }
+
+        .clear:after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        div.img {
+            padding: 15px;
+            box-shadow: 0 0 3px 1px #ddd;
+            transition: transform 0.5s;
+            transition-timing-function: linear;
+            -webkit-transition: transform 0.5s;
+            -webkit-transition-timing-function: linear;
+        }
+
+        div.img:hover {
+            box-shadow: 0 0 10px 5px #ddd;
+            transform: scale(1.05, 1.05);
+            -webkit-transform: scale(1.05, 1.05);
+        }
+
+        /** image responsive */
+
+        div.img img {
+            width: 100%;
+            height: auto;
+        }
+
+        div.desc {
+            padding: 20px;
+            text-align: center;
+            transition: font-size 2s;
+            -webkit-transition: font-size 2s;
+
+        }
+
+        div.desc:hover {
+            font-size: 1.2em;
+        }
+
+        div.header {
+            font-size: 40px;
+            width: 100%;
+            padding: 20px;
+            background-color: rgb(219, 19, 203);
+            margin-bottom: 20px;
+        }
+
+        div.footer {
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+            font-size: 0.8em;
+
+        }
+
+        /** media */
+
+        @media only screen and (max-width: 700px) {
+            .responsive {
+                width: 49.9999%;
+                margin: 10px 0;
+            }
+        }
+
+        @media only screen and (max-width: 500px) {
+            .responsive {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">Picture Show</div>
+    <div class="responsive">
+        <div class="img">
+            <a href="#image">
+                <img src="http://www.runoob.com/wp-content/uploads/2016/04/img_fjords.jpg" alt="image_scene" width="300" height="200">
+            </a>
+            <div class="desc">
+                Scenery is so Cool.
+            </div>
+        </div>
+    </div>
+    <div class="responsive">
+        <div class="img">
+            <a href="#image">
+                <img src="http://www.runoob.com/wp-content/uploads/2016/04/img_fjords.jpg" alt="image_scene" width="300" height="200">
+            </a>
+            <div class="desc">
+                Scenery is so Cool.
+            </div>
+        </div>
+    </div>
+    <div class="responsive">
+        <div class="img">
+            <a href="#image">
+                <img src="http://www.runoob.com/wp-content/uploads/2016/04/img_fjords.jpg" alt="image_scene" width="300" height="200">
+            </a>
+            <div class="desc">
+                Scenery is so Cool.
+            </div>
+        </div>
+    </div>
+    <div class="responsive">
+        <div class="img">
+            <a href="#image">
+                <img src="http://www.runoob.com/wp-content/uploads/2016/04/img_fjords.jpg" alt="image_scene" width="300" height="200">
+            </a>
+            <div class="desc">
+                Scenery is so Cool.
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="footer">&copy; 2017 HenryHE</div>
+</body>
+
+</html>
