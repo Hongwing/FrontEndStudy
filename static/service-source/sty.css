@@ -1,7 +1,10 @@
         .style-bg {
             width: 100%;
-            
+            {% if isSrc %}
+            height: 420px;
+            {% else %}
             height: 900px;
+            {% endif %}
             
             // background-image: url('https://images.unsplash.com/photo-1506440905961-0ab11f2ed5bc?auto=format&fit=crop&w=1315&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D');
             /* bg */
@@ -11,3 +14,5 @@
             background-image: url('https://images.unsplash.com/photo-1463008420065-8274332e2be8?auto=format&fit=crop&w=1350&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D');
             background-size: cover;
         }
+        
+        
