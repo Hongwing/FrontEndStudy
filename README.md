@@ -21,17 +21,17 @@
 * [Layui-FrameworkDemo_2](https://acarat.coding.me/FrontEndStudy/OOP)
 
 * [Src-Search everything from Cloud](http://116.196.101.202/source)
-> Search Engine with Python
-> Use Flask as the back-end
-> Use Layui as the front-end
+    - Search Engine with Python
+    - Use Flask as the back-end 
+    - Use Layui as the front-end
 
 
 * [GaussBlur-Nav | Glass](https://acarat.coding.me/FrontEndStudy/demo-nav)
-* 
+
 * [Rose](https://acarat.coding.me/FrontEndStudy/rose)
-* 
+
 * [Radius & Gradient](https://acarat.coding.me/FrontEndStudy/radius)
-* 
+
 * [WeboNote | Analyze your style](http://116.196.101.202)
 
 
