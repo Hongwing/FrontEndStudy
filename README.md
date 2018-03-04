@@ -3,7 +3,7 @@
 
 ### This repo is mainly focused on the **Front-End-Dev**. Lots of examples about F-E-D grow up in the future.
 
-### **For fresh learners**, you guys can make some of them in you own way, I believe **your skills gonna take a peak.**  
+### **For fresh learners**, you guys can make some of them in you own way, And I believe **your skills gonna take a peak.**  
 
 ---
 
