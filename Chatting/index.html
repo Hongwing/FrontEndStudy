@@ -1,0 +1,263 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"
+    />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" type="text/css" href="./css/aui.css" />
+    <style type="text/css">
+        .header {
+            padding: 2.5rem 0.5rem 2rem 0.5rem;
+        }
+
+        #chatting {
+            width: 72%;
+            padding: 10px;
+            margin: 0 auto;
+            border: 5px solid rgba(0, 0, 0, .2);
+            max-height: 540px;
+            overflow-y: auto;
+            box-shadow: 0 0 100px 5px rgba(0, 0, 0, .4);
+        }
+
+        .aui-iconfont {
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="aui-bar aui-bar-nav aui-text-left header" id="header">
+        <h1>
+            Chatting &copy; - Next - LocalStorage on Chatting Records
+        </h1>
+    </header>
+
+    <!-- 容器 3 column 1 left; 2 chatting; 3 right -->
+    <div style="margin-top: 20px;" class="aui-row-padded">
+        <div id="left" class="aui-col-xs-4">
+            <div class="aui-content">
+                <div class="aui-list aui-media-list">
+                    <div class="aui-list-item">
+                        <div class="aui-media-list-item-inner">
+                            <div class="aui-list-item-media">
+                                <i class="aui-iconfont aui-icon-qq"></i>
+                            </div>
+                            <div class="aui-list-item-inner">
+                                <div class="aui-list-item-test">Left Side</div>
+                                <div class="aui-list-item-test">
+                                    <input id="leftinput" autofocus style="padding: 10px; border-left: 5px solid black;border-right: 5px solid black;"
+                                        type="text">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="middle" class="aui-col-xs-4">
+
+            <div id="chatting">
+                <section id="chat-section" class="aui-chat">
+                    <div class="aui-chat-header">2016年7月13日</div>
+                    <div class="aui-chat-item aui-chat-left">
+                        <div class="aui-chat-media">
+                            <img src="../../image/demo2.png" />
+                        </div>
+                        <div class="aui-chat-inner">
+                            <div class="aui-chat-name">AUI
+                                <span class="aui-label aui-label-warning">2.0</span>
+                            </div>
+                            <div class="aui-chat-content">
+                                <div class="aui-chat-arrow"></div>
+                                Hello AUI 2.0!
+                            </div>
+                            <div class="aui-chat-status aui-chat-status-refresh">
+                                <i class="aui-iconfont aui-icon-correct aui-text-success"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="aui-chat-item aui-chat-right">
+                        <div class="aui-chat-media">
+                            <img src="../../image/liulangnan.png" />
+                        </div>
+                        <div class="aui-chat-inner">
+                            <div class="aui-chat-name">流浪男</div>
+                            <div class="aui-chat-content">
+                                <div class="aui-chat-arrow"></div>
+                                你好！
+                            </div>
+                            <div class="aui-chat-status">
+                                <i class="aui-iconfont aui-icon-info aui-text-danger"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="aui-chat-item aui-chat-left">
+                        <div class="aui-chat-media">
+                            <img src="../../image/demo2.png" />
+                        </div>
+                        <div class="aui-chat-inner">
+                            <div class="aui-chat-name">AUI
+                                <span class="aui-label aui-label-warning">2.0</span>
+                            </div>
+                            <div class="aui-chat-content">
+                                <div class="aui-chat-arrow"></div>
+                                <img src="../../image/l1.png" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="aui-chat-item aui-chat-right">
+                        <div class="aui-chat-media">
+                            <img src="../../image/liulangnan.png" />
+                        </div>
+                        <div class="aui-chat-inner">
+                            <div class="aui-chat-name">流浪男</div>
+                            <div class="aui-chat-content">
+                                <div class="aui-chat-arrow"></div>
+                                以前拍摄的牛背山星空
+                            </div>
+                        </div>
+                    </div>
+                    <div class="aui-chat-item aui-chat-left">
+                        <div class="aui-chat-media">
+                            <img src="../../image/demo2.png" />
+                        </div>
+                        <div class="aui-chat-inner">
+                            <div class="aui-chat-name">AUI
+                                <span class="aui-label aui-label-warning">2.0</span>
+                            </div>
+                            <div class="aui-chat-content">
+                                <div class="aui-chat-arrow"></div>
+                                <img src="../../image/l2.png" />
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+            </div>
+        </div>
+        <div id="right" class="aui-col-xs-4">
+            <div class="aui-content">
+                <div class="aui-list aui-media-list">
+                    <div class="aui-list-item">
+                        <div class="aui-media-list-item-inner">
+                            <div class="aui-list-item-media">
+                                <i class="aui-iconfont aui-icon-wechat"></i>
+                            </div>
+                            <div class="aui-list-item-inner">
+                                Right:
+                                <input id="rightinput" style="padding: 10px; border-left: 5px solid black;border-right: 5px solid black;"
+                                    type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script type="text/javascript" src="./script/api.js"></script>
+<script type="text/javascript">
+    apiready = function () {
+        api.setStatusBarStyle({
+            style: 'light'
+        });
+        api.parseTapmode();
+        var header = $api.byId('header');
+        var headerPos = $api.offset(header);
+        var body_h = $api.offset($api.dom('body')).h;
+        var header_h = $api.offset($api.byId('header')).h;
+        api.openFrame({
+            name: 'index_frm',
+            url: './html/index_frm.html',
+            bounces: true,
+            rect: {
+                x: 0,
+                y: header_h,
+                w: 'auto',
+                h: 'auto'
+            }
+        })
+    };
+    'use strict'
+
+    var leftInput = document.getElementById('leftinput')
+    var rightInput = document.getElementById('rightinput')
+
+    leftInput.addEventListener('keypress', function (event) {
+        if (parseInt(event.keyCode) === 13) {
+            // enter
+            handleInput()
+        }
+    })
+
+    rightInput.addEventListener('keypress', function (event) {
+        if (parseInt(event.keyCode) === 13) {
+            // enter
+            handleInput2()
+        }
+    })
+
+    function handleInput() {
+        var content = leftInput.value
+        console.log('content', content)
+        if (content) {
+            putContentIntoChat(content, 'left')
+        }
+    }
+
+    function handleInput2() {
+        var content = rightInput.value
+        console.log('content', content)
+        if (content) {
+            putContentIntoChat(content, 'right')
+        }
+    }
+
+
+    function putContentIntoChat(content, side) {
+        var div = document.createElement('div')
+        div.className = `aui-chat-item aui-chat-${side}`
+        if (side === 'left') {
+            div.innerHTML =
+                `
+                        <div class="aui-chat-media">
+                            <img src="../../image/demo2.png" />
+                        </div>
+                        <div class="aui-chat-inner">
+                            <div class="aui-chat-name">AUI
+                                <span class="aui-label aui-label-warning">2.0</span>
+                            </div>
+                            <div class="aui-chat-content">
+                                <div class="aui-chat-arrow"></div>
+                                ${content}
+                            </div>
+                            <div class="aui-chat-status aui-chat-status-refresh">
+                                <i class="aui-iconfont aui-icon-correct aui-text-success"></i>
+                            </div>
+                        </div>`
+        } else {
+            div.innerHTML =
+                `<div class="aui-chat-media">
+                            <img src="../../image/liulangnan.png" />
+                        </div>
+                        <div class="aui-chat-inner">
+                            <div class="aui-chat-name">流浪男</div>
+                            <div class="aui-chat-content">
+                                <div class="aui-chat-arrow"></div>
+                                ${content}
+                            </div>
+                        </div>`
+        }
+        var sec = document.getElementById('chat-section')
+        sec.appendChild(div)
+        var chat = document.getElementById('chatting')
+        chat.scrollTop = chat.scrollHeight // 滚动条自动滚动到底部 设置overFlow的容器进行操作
+
+    }
+</script>
+
+</html>
