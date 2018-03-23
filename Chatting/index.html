@@ -13,7 +13,7 @@
         }
 
         #chatting {
-            width: 72%;
+            /* width: 72%; */
             padding: 10px;
             margin: 0 auto;
             border: 5px solid rgba(0, 0, 0, .2);
@@ -37,19 +37,40 @@
 
     <!-- 容器 3 column 1 left; 2 chatting; 3 right -->
     <div style="margin-top: 20px;" class="aui-row-padded">
-        <div id="left" class="aui-col-xs-4">
-            <div class="aui-content">
-                <div class="aui-list aui-media-list">
-                    <div class="aui-list-item">
-                        <div class="aui-media-list-item-inner">
-                            <div class="aui-list-item-media">
-                                <i class="aui-iconfont aui-icon-qq"></i>
+
+        <!-- left and right -->
+        <div class="aui-col-xs-12 aui-row">
+
+            <div id="left" class="aui-col-xs-6">
+                <div class="aui-content">
+                    <div class="aui-list aui-media-list">
+                        <div class="aui-list-item">
+                            <div class="aui-media-list-item-inner">
+                                <div class="aui-list-item-media">
+                                    <i class="aui-iconfont aui-icon-qq"></i>
+                                </div>
+                                <div class="aui-list-item-inner">
+                                    <div class="aui-list-item-test">Left Side</div>
+                                    <div class="aui-list-item-test">
+                                        <input id="leftinput" autofocus style="padding: 10px; border-left: 5px solid black;border-right: 5px solid black;" type="text">
+                                    </div>
+                                </div>
                             </div>
-                            <div class="aui-list-item-inner">
-                                <div class="aui-list-item-test">Left Side</div>
-                                <div class="aui-list-item-test">
-                                    <input id="leftinput" autofocus style="padding: 10px; border-left: 5px solid black;border-right: 5px solid black;"
-                                        type="text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="right" class="aui-col-xs-6">
+                <div class="aui-content">
+                    <div class="aui-list aui-media-list">
+                        <div class="aui-list-item">
+                            <div class="aui-media-list-item-inner">
+                                <div class="aui-list-item-media">
+                                    <i class="aui-iconfont aui-icon-wechat"></i>
+                                </div>
+                                <div class="aui-list-item-inner">
+                                    Right:
+                                    <input id="rightinput" style="padding: 10px; border-left: 5px solid black;border-right: 5px solid black;" type="text">
                                 </div>
                             </div>
                         </div>
@@ -57,7 +78,7 @@
                 </div>
             </div>
         </div>
-        <div id="middle" class="aui-col-xs-4">
+        <div class="aui-col-xs-12">
 
             <div id="chatting">
                 <section id="chat-section" class="aui-chat">
@@ -138,25 +159,9 @@
                 </section>
             </div>
         </div>
-        <div id="right" class="aui-col-xs-4">
-            <div class="aui-content">
-                <div class="aui-list aui-media-list">
-                    <div class="aui-list-item">
-                        <div class="aui-media-list-item-inner">
-                            <div class="aui-list-item-media">
-                                <i class="aui-iconfont aui-icon-wechat"></i>
-                            </div>
-                            <div class="aui-list-item-inner">
-                                Right:
-                                <input id="rightinput" style="padding: 10px; border-left: 5px solid black;border-right: 5px solid black;"
-                                    type="text">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
+    </div>
+
 
 </body>
 <script type="text/javascript" src="./script/api.js"></script>
