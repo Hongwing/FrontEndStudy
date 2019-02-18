@@ -47,6 +47,13 @@
 ## 2018
 ![2018](https://images.unsplash.com/photo-1512248805576-c1b31f6fcab1?ixlib=rb-0.3.5&s=8eb4ba81e579cc295feb0c1fa9940623&auto=format&fit=crop&w=751&q=80)
 
-* [Flex-layout about Card Model](http://wegeek.club/FrontEndStudy/flex-layout)
+* [Flex-layout about Card Model](http://henryhe.cn/FrontEndStudy/flex-layout)
 
-* [CSS-Transform Animation](http://wegeek.club/FrontEndStudy/css-transform)
+* [CSS-Transform Animation](http://henryhe.cn/FrontEndStudy/css-transform)
+
+
+## 2019
+![2019](https://images.unsplash.com/photo-1546260286-b27099f920cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80)
+
+* [Background Animation Trick](http://henryhe.cn/FrontEndStudy/css-trick.html)
+> Font gradient & cubic-bezier animation & new featuare

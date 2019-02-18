@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cubelizer Animation</title>
+    <style>
+        :root {
+            --main: 80px;
+            --count: infinite;
+        }
+
+        .out-1 {
+            animation: ver-animation 1s .5s var(--count);
+            animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+            position: absolute;
+            top: 2rem;
+            left: 200px;
+            ;
+        }
+
+        .out-2 {
+            animation: hos-animation 1s linear .5s var(--count);
+        }
+
+        #item-1 {
+            animation: hos-animation 3s linear .5s var(--count);
+        }
+
+        #item-2 {
+            animation: hos-animation 4s linear .5s var(--count);
+        }
+
+        .out-item {
+            width: var(--main);
+            height: var(--main);
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: pink;
+            border-radius: 50% 50%;
+        }
+
+
+        @keyframes ver-animation {
+            0% {
+                transform: translateY(0px);
+                /* background-color: pink */
+            }
+
+            25% {
+                transform: translateY(200px);
+            }
+
+            50% {
+                transform: translateY(400px);
+            }
+
+            75% {
+                transform: translateY(200px);
+            }
+
+            100% {
+                /* transform: translate3d(0px, 400PX); */
+                transform: translateY(0px);
+                /* background-color: rebeccapurple; */
+            }
+        }
+
+        @keyframes hos-animation {
+            0% {
+                transform: translateX(0px);
+            }
+
+            100% {
+                transform: translateX(0px);
+                background-color: red;
+            }
+        }
+
+        .font-dis {
+            margin: 1rem auto;
+            background-image: linear-gradient(to top, #f38504, #da1b60);
+            -webkit-background-clip: text;
+            font-weight: 700;
+            border-bottom: 2px solid #da1b60;
+            padding-bottom: .15rem;
+            color: transparent;
+            font-size: 2.6rem;
+            text-align: center;
+        }
+
+        .font-dis:hover {
+            border-color: black;
+        }
+
+        .card {
+            width: 400px;
+            height: 180px;
+            background-image: linear-gradient(to top, #f38504, #da1b60);
+            border-radius: .5rem;
+            color: white;
+            padding: 1rem;
+            transform: rotate(180deg);
+            -webkit-writing-mode: vertical-rl;
+            margin: 1rem 2rem;
+            transition: all ease 1.5s;
+            position: relative;
+        }
+
+        .card::after {
+            content: '';
+            border-bottom: 20px solid transparent;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 20px solid #da1b60;
+            position: absolute;
+            bottom: -40px;
+            left: 45%;
+        }
+
+        .dis {
+            background-image: linear-gradient(70deg, #f38504 50%, #da1b60 50%);
+            background-size: 100% 200%;
+            background-position: 0 0;
+
+            /* background: linear-gradient(90deg, #ffc700 0%, #e91e1e 50%, #6f27b0 100%);
+            background-size: 200% 100%;
+            background-position: 0 0; */
+        }
+
+        .dis:hover {
+            /* background-image: linear-gradient(to top, #f38504, black); */
+            background-position: 0 100%;
+            transition: all ease-out 4s;
+        }
+
+        .dis2 {
+            background: linear-gradient(20deg, #f38504 50%, #da1b60 50%);
+            background-size: 200% 100%;
+            background-position: 0 0;
+        }
+
+        .dis2:hover {
+            background-position: 100% 0;
+        }
+
+        .card-list {
+            margin: 2rem auto;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .list-item {
+            width: 220px;
+            height: 360px;
+            background-color: #17141d;
+            box-shadow: -1rem 0 3rem #000;
+            border-radius: 16px;
+            transition: all ease .5s;
+        }
+
+        .list-item:hover {
+            background-color: white;
+            transform: translateY(-10px);
+        }
+    </style>
+</head>
+
+<body style="background-color: black;">
+    <div style="margin: 2rem auto; padding: 2rem 0">
+        <a class="font-dis">Well, Done</a>
+    </div>
+    <div style="display: flex; justify-content: center;">
+        <div class="card">
+            <h1>Title</h1>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi, eius quia? Harum corrupti ad sed. Natus
+                iusto qui doloribus necessitatibus voluptatem doloremque, corrupti nemo, tempora quas recusandae
+                aspernatur, totam minus?</p>
+        </div>
+        <div class="card dis">
+        </div>
+        <div class="card dis2">
+        </div>
+    </div>
+    <div class="card-list">
+        <div class="list-item"></div>
+        <div class="list-item"></div>
+        <div class="list-item"></div>
+        <div class="list-item"></div>
+        <div class="list-item"></div>
+    </div>
+    <div class="out-1">
+        <div class="out-2" id="item-1">
+            <div class="out-item" style="left: 10px"></div>
+            <!-- <div class="out-item" id="item-2" style="left: 210px"></div> -->
+            <!-- <div class="out-item" id="item-3" style="left: 410px"></div> -->
+        </div>
+        <div class="out-2" id="item-2">
+            <!-- <div class="out-item" id="item-1" style="left: 10px"></div> -->
+            <div class="out-item" style="left: 210px"></div>
+            <!-- <div class="out-item" id="item-3" style="left: 410px"></div> -->
+        </div>
+    </div>
+    </div>
+</body>
+
+<script>
+    window.document.onload = () => {
+
+    }
+</script>
+
+</html>
