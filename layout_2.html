@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Layout-1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-width:1000px;
+        }
+
+        header, footer {
+            height: 80px;
+            background-color: violet;
+            width: 100%;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+        }
+
+        footer {
+            height: 320px;
+        }
+
+        #container {
+            /* position: relative; */
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #left {
+            /* width: 200px; */
+            flex: 1;
+            height: 400px;
+            background-color: transparent;
+        }
+        #right {
+            flex: 1;
+            /* width: 400px; */
+            height: 400px;
+            background-color: transparent;
+        }
+        #center {
+            width: 800px;
+            /* flex: 1; */
+            min-height: 800px;;
+
+            margin: 40px auto;
+            /* background-color: tan; */
+        }
+        #content {
+            background-color: white;
+            border: 1px solid rgba(0,0,0,.07);
+            box-shadow: 0 6px 10px -6px rgba(0,0,0,.07);
+            height: 100%;
+            border-radius: 5px;
+        }
+
+        .content-head {
+           text-align: center;
+           margin: 20px auto;
+        }
+
+        ul li {
+            list-style: none;
+            padding: 0 32px;
+            transition: all ease 1s;
+        }
+
+        ul li:hover {
+            background-color: rgba(0,0,0,.72);
+            color: white;
+        }
+        nav.top {
+            width: 240px;
+            height: 60px;
+            margin-left: 200px;
+        }
+        .menu {
+            display: flex;
+            justify-content: space-around;
+            line-height: 60px;
+        }
+        .parent {
+            width: 80%;
+            height: 400px;
+            margin: 40px auto;
+            position: relative;
+            background-color: darkcyan;
+        }
+
+        .child {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: hotpink;
+            left: 50%;
+            /* top: 50%; */
+            transform: translate(-50%, 50%);
+            /* margin-left: -100px; */
+            /* margin-top: -100px; */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="top">
+            <ul class="menu">
+                <li>Home</li>
+                <li>Blog</li>
+                <li>About</li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="container">
+        <div id="left">
+        </div>
+        <div id="center">
+            <div id="content">
+                <div class="content-head">
+                    <h1>Layout</h1>
+
+                    <div class="parent">
+                        <div class="child"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="right">
+        </div>
+    </div>
+
+    <footer>
+        
+    </footer>
+</body>
+</html>
