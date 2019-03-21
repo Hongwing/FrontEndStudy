@@ -28,6 +28,7 @@
 
         footer {
             height: 320px;
+            /* display: none; */
         }
 
         #container {
@@ -108,6 +109,33 @@
             /* margin-left: -100px; */
             /* margin-top: -100px; */
         }
+
+        .operate {
+            margin: .8rem auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            width: 80%;
+        }
+        .col {
+            width: 33%;
+            flex: 1;
+        }
+        .op-item {
+            width: 80%;
+            background-color: green;
+            margin: .8rem auto;
+            border-radius: 10px 10px;
+            box-shadow: 0 20px 12px -8px green;
+        }
+
+        .loading {
+            width: 80%;
+            margin: .8rem auto;
+            text-align: center;
+            display: none;
+        }
+
     </style>
 </head>
 <body>
@@ -132,6 +160,20 @@
                     <div class="parent">
                         <div class="child"></div>
                     </div>
+
+                    <div class="operate">
+                        <div id="col1" class="col">
+                            <p class="op-item" style="height: 200px"></p>
+                        </div>
+                        <div id="col2" class="col">
+                            <p class="op-item" style="height: 300px"></p>
+                        </div>
+                        <div id="col3" class="col">
+                            <p class="op-item" style="height: 100px"></p>
+                        </div>
+                    </div>
+
+                    <div class="loading">Loading</div>
                 </div>
             </div>
         </div>
@@ -142,5 +184,103 @@
     <footer>
         
     </footer>
+    <script>
+        window.onscroll = function (e) {
+            // console.info(document.documentElement.scrollTop, document.body.scrollTop, document.documentElement.clientHeight, document.body.clientHeight)
+
+            const scroll_distance = document.documentElement.scrollTop || document.body.scrollTop;
+            const scene_height = document.documentElement.clientHeight || document.body.clientHeight;
+
+            // 哪一列是最短的 会最先出发加载
+
+            const target = document.querySelector('.loading');
+            const { height, el } = getColsMin();
+            // 屏幕外元素进入屏幕内 准备加载
+            if (height < scroll_distance + scene_height) {
+                // add node
+
+                // addNodeToElement(el);
+                throttle(function () {
+                addNodeToElement(el);
+                })
+            }
+
+            // if (scroll_distance >= getTopDis(target)) {
+            //     target.style.backgroundColor = 'red';
+            // } else {
+            //     target.style.backgroundColor = 'pink';
+            // }
+
+            // if (document.body.clientHeight - (document.documentElement.clientHeight + scroll_distance) <= 100) {
+            //     // bottom check
+            //     // const loading = document.querySelector('loading');
+            //     // loading.style.display = 'block';
+            //     console.info('bottom')
+                
+            //     document.querySelector('footer').style.backgroundColor = 'black';
+            // } else {
+            //     document.querySelector('footer').style.backgroundColor = 'violet'
+            // }
+
+        }
+
+        function addNodeToElement(el) {
+            const p = document.createElement('p');
+            p.className = 'op-item';
+
+            p.style.height = Math.floor(Math.random(.8, 1) * 400) + 'px';
+            el.appendChild(p);
+        }
+
+        function getColsMin() {
+            var e = document.querySelector('#col1').lastElementChild; // 计算最后一个元素
+            // var min = e.offsetHeight + getTopDis(e);
+            var min = e.offsetHeight + e.offsetTop;
+
+            var minEl = '1'
+            for (let index = 2; index < 4; index++) {
+                const el = document.querySelector('#col'+index).lastElementChild;
+                // console.info(el)
+                // if (el.offsetHeight + getTopDis(el) < min) {
+                //     min = el.offsetHeight + getTopDis(el);
+                //     minEl = index;
+                // }
+
+                if (el.offsetHeight + el.offsetTop < min) {
+                    min = el.offsetHeight + (el.offsetTop);
+                    minEl = index;
+                }
+            }
+
+            return {
+                height: min,
+                el: document.querySelector('#col'+minEl)
+            }
+        }
+
+        /*
+        * 递归找出绝对高度
+        */
+        function getTopDis(el) {
+            var top = 0;
+            // if (!el) return top;
+
+            do {
+            } while((el = el.offsetParent).nodeName !== 'BODY' );
+            return top;
+        }
+
+        /**
+        * 节流
+        */
+        let timer = null;
+        function throttle(fn) {
+            clearTimeout(timer);
+
+            setTimeout(() => {
+                fn.apply(this, arguments);
+            }, 100);
+        }
+    </script>
 </body>
 </html>
