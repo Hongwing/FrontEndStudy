@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Fire</title>
+	<style type="text/css">
+		body {
+			background: black;
+		}
+
+		#fire {
+			width: 200px;
+			height: 200px;
+			background-color: orange;
+			filter: blur(6px);
+		}
+
+		.fire {
+			position: relative;;
+			width: 0;
+			height: 0;
+			border-radius: 45%;
+			box-sizing: border-box;
+			border: 250px solid #000;
+			border-bottom: 250px solid transparent;
+			background-color: #b5932f;
+			/*transform: scaleX(.4);*/
+			filter: blur(20px) contrast(30);
+		}
+
+		.go {
+			position: absolute;
+			width: 10px;
+			height: 60px;
+			background-color: black;
+			transition: all ease .5s;
+			animation: up ease infinite .25s;
+			bottom: -220px;
+		}
+
+		.go:nth-child(6) {
+			animation-delay: 2.4s;
+			right: 5px;
+		}
+
+		.go:nth-child(7) {
+			animation-delay: 2s;
+			left: 10px;
+		}
+
+		.go:nth-child(1) {
+			animation-delay: 1.5s;
+			right: 22px;
+		}
+
+		.go:nth-child(2) {
+			animation-delay: 2.1s;
+			left: 8px;
+		}
+
+		.go:nth-child(3) {
+			animation-delay: 3s;
+			left: 24px;
+		}
+
+		.go:nth-child(4) {
+			animation-delay: 1.8s;
+			right: 33px;
+		}
+
+		.go:nth-child(5) {
+			animation-delay: .9s;
+			right: 40px;
+		}
+
+
+		@keyframes up {
+			0% {
+				transform: translateY(0);
+			}
+
+			20% {
+				transform: translateY(-20px);
+			}
+
+			40% {
+				transform: translateY(-50px);
+			}
+
+			60% {
+				transform: translateY(-70px);
+			}
+
+			80% {
+				transform: translateY(-100px);
+			}
+
+			100% {
+				transform: translateY(-120px);
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Fire</h1>
+
+	<div class="fire">
+		<div class="go"></div>
+		<div class="go"></div>
+		<div class="go"></div>
+		<div class="go"></div>
+		<div class="go"></div>
+		<div class="go"></div>
+		<div class="go"></div>
+		<div class="go"></div>
+		<div class="go"></div>
+		<div class="go"></div>
+		<div class="go"></div>
+		<div class="go"></div>
+		<div class="go"></div>
+		<div class="go"></div>
+	</div>
+</body>
+
+</html>
