@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fibo</title>
+    <link rel="stylesheet" href="https://watercss.netlify.com/dist/light.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #container {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        #fibo {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 600px;
+            height: 100%;
+            margin: 0 auto;
+        }
+
+        #fibo input {
+            display: inline-block;
+        }
+
+        #fibo-list {
+            position: relative;
+            margin: 1rem;
+            padding: 1rem;
+            border: 1px dashed gray;
+            transition: all ease .5s;
+            max-height: 20vh;
+            min-width: 20px;
+            overflow-y: scroll;
+        }
+
+        #fibo-list::before {
+            content: attr(data-fibo);
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-size: .4rem;
+            color: red;
+        }
+
+        #fibo-list:hover {
+            border-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="fibo">
+            <h2 id="title">Fibonacci Served By UI</h2>
+            <div>
+                <input type="number" name="fnum" id="fnum">
+                <button onclick="handleClick()">
+                    获取
+                </button>
+            </div>
+            <h2 data-fibo="" id="fibo-list"></h2>
+        </div>
+        <script>
+            'use strict'
+            var olist = document.querySelector('#fibo-list')
+            var fibo_list = []
+
+            function handleClick() {
+                var input = document.querySelector('#fnum')
+                var value = parseInt(input.value)
+                if (value < 0 || !value) {
+                    alert('请输入正数')
+                    olist.setAttribute('data-fibo', '')
+                    olist.innerHTML = ''
+                    input.value = ''
+                    return;
+                }
+
+                fibo_list = []
+                renderFiboList(value)
+            }
+
+            function renderFiboList(v) {
+                olist.innerHTML = ''
+
+                getFibonacci(v)
+
+                olist.setAttribute('data-fibo', 'End On ' + fibo_list[fibo_list.length - 1])
+                olist.innerHTML = fibo_list.join(', ')
+            }
+
+            function getFibonacci(n) {
+                for (var index = 0; index < n; index++) {
+                    if (index === 1) {
+                        fibo_list.push(1)
+                        continue
+                    }
+
+                    if (index === 0) {
+                        fibo_list.push(0)
+                        continue
+                    }
+                    fibo_list.push(fibo_list[index - 1] + fibo_list[index - 2])
+                }
+            }
+
+            /** recursive */
+            function getFibonacciRecursive(n) {
+
+                if (n === 1) {
+                    return 1
+                }
+
+                if (n === 0) {
+                    return 0
+                }
+
+                return getFibonacci(n - 1) + getFibonacci(n - 2)
+            }
+        </script>
+    </div>
+</body>
+
+</html>
