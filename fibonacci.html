@@ -83,7 +83,7 @@
             function handleClick() {
                 var input = document.querySelector('#fnum')
                 var value = parseInt(input.value)
-                if (value < 0 || !value) {
+                if (value <= 0 || !value) {
                     alert('请输入正数')
                     olist.setAttribute('data-fibo', '')
                     olist.innerHTML = ''
@@ -98,12 +98,20 @@
             function renderFiboList(v) {
                 olist.innerHTML = ''
 
-                getFibonacci(v)
+                // getFibonacci(v)
+                getFibonacciRecursive(v)
 
-                olist.setAttribute('data-fibo', 'End On ' + fibo_list[fibo_list.length - 1])
-                olist.innerHTML = fibo_list.join(', ')
+                var values = Object.values(cache).slice(0, Object.values(cache).length - 1)
+                var cache_values = values.slice(0, v)
+
+                // olist.setAttribute('data-fibo', 'End On ' + fibo_list[fibo_list.length - 1])
+                olist.setAttribute('data-fibo', 'End On ' + cache_values[cache_values.length - 1])
+
+                // olist.innerHTML = fibo_list.join(', ')
+                olist.innerHTML = cache_values.join(', ')
             }
 
+            // none-recursive
             function getFibonacci(n) {
                 for (var index = 0; index < n; index++) {
                     if (index === 1) {
@@ -120,17 +128,17 @@
             }
 
             /** recursive */
+            var cache = {
+                0: 0,
+                1: 1
+            }
+
             function getFibonacciRecursive(n) {
-
-                if (n === 1) {
-                    return 1
+                if (cache[n] !== undefined) {
+                    return cache[n]
                 }
 
-                if (n === 0) {
-                    return 0
-                }
-
-                return getFibonacci(n - 1) + getFibonacci(n - 2)
+                return cache[n] = getFibonacciRecursive(n - 1) + getFibonacciRecursive(n - 2)
             }
         </script>
     </div>
