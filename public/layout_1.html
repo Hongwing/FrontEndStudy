@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Layout-1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        header, footer {
+            height: 40px;
+            background-color: violet;
+            width: 100%;
+        }
+
+        #container {
+            /* position: relative; */
+        }
+
+        #left {
+            float: left;
+            width: 200px;
+            height: 400px;
+            background-color: hotpink;
+        }
+        #right {
+            /* position: absolute; */
+            /* margin-left: -200px; */
+            /* width: 100%; */
+            float: right;
+            width: 400px;
+            height: 400px;
+            background-color: goldenrod;
+        }
+        #center {
+            /* margin: 0 400px 0 0; */
+            margin-left: 200px;
+            margin-right: 400px;
+            min-height: 800px;;
+            background-color: tan;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Header right here.
+    </header>
+
+    <div id="container">
+        <div id="left">
+            Left here.
+        </div>
+        <div id="right">
+            Right Here.
+        </div>
+        <div id="center">
+            Center here.
+        </div>
+    </div>
+
+    <footer>
+        Footer right here.
+    </footer>
+</body>
+</html>
