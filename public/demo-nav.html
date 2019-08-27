@@ -1,0 +1,75 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Henry|Glass</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .main {
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1506512534708-3737d46bffe1?auto=format&fit=crop&w=1350&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D');
+            background-size: cover;
+            position: relative;
+        }
+
+        .content {
+            position: absolute;
+            width: 100%;
+            height: 80px;
+            padding: 25px;
+            font-size: 25px;
+            color: white;
+            font-family: 'Verdana', 'Arial';
+            box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+            /** postion */
+            z-index: 1;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .content::before {
+            content: '';
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            z-index: -1;
+            background: url('https://images.unsplash.com/photo-1506512534708-3737d46bffe1?auto=format&fit=crop&w=1350&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D');
+            background-size: cover;
+            background-attachment: fixed;
+            /** filter */
+            filter: blur(8px);
+            -webkit-filter: blur(8px);
+        }
+
+        img {
+            width: 30px;
+            height: auto;
+            margin-right: 20px;
+            border-radius: 50px;
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="content">
+
+
+            Hello React. This is really cool.
+            <img src="http://cdn.duitang.com/uploads/item/201408/14/20140814110029_nkWVH.thumb.224_0.jpeg" alt="title">
+
+        </div>
+    </div>
+</body>
+
+</html>

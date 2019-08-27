@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BFC Trigger</title>
+    <style>
+        body {
+            position: relative;
+            margin: 0;
+        }
+        /* indicator */
+        .indicator {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: linear-gradient(to right top, purple 50%, transparent 50%);
+            background-repeat: no-repeat;
+            background-size: 100% calc(100% - 100vh + 5px);
+            z-index: 1;
+            pointer-events: none;
+            mix-blend-mode: darken;
+        }
+
+        .indicator::after {
+            content: '';
+            position: fixed;
+            top: 5px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: white;
+            z-index: 1;
+        }
+
+
+        /* float-导致覆盖 */
+        #parent {
+            width: 980px;
+            margin: 0 auto;
+        }
+
+        #left {
+            width: 240px;
+            height: 320px;
+            background: pink;
+            float: left;
+        }
+
+        #right {
+            font-size: 2rem;
+            /* bfc */
+            overflow: hidden;
+        }
+
+        /* float-导致父元素高度塌陷 */
+        #r-p {
+            background: skyblue;
+            /* bfc */
+            overflow: hidden;
+        }
+
+        #r-p-block {
+            width: 200px;
+            height: 400px;
+            background: orange;
+            float: left;
+        }
+
+        /* 垂直块框 margin重叠 - bfc */
+        #r-p-1 {
+            background: black;
+            height: 500px;
+            margin-top: 10px;
+            /* bfc */
+            /* padding: 1px; */
+            overflow: hidden;
+        }
+
+        #r-p-1-block {
+            width: 320px;
+            height: 400px;
+            margin-top: 20px;
+            background: red;
+        }
+
+        footer {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="indicator"></div>
+    <div id="parent">
+        <header>
+            <h2>HenryHE</h2>
+        </header>
+        <div id="left">
+            <h3>BFC-1</h3>
+        </div>
+        <div id="right">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa corrupti fugit iure harum accusantium a quae.
+            Error temporibus nostrum ullam alias perspiciatis tenetur dolorum, voluptate magni voluptatem reprehenderit
+            voluptas placeat?
+
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa corrupti fugit iure harum accusantium a
+                quae. Error temporibus nostrum ullam alias perspiciatis tenetur dolorum, voluptate magni voluptatem
+                reprehenderit voluptas placeat?
+            </p>
+
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa corrupti fugit iure harum accusantium a
+                quae. Error
+                temporibus nostrum ullam alias perspiciatis tenetur dolorum, voluptate magni voluptatem reprehenderit
+                voluptas
+                placeat?
+            </p>
+
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa corrupti fugit iure harum accusantium a
+                quae. Error
+                temporibus nostrum ullam alias perspiciatis tenetur dolorum, voluptate magni voluptatem reprehenderit
+                voluptas
+                placeat?
+            </p>
+
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa corrupti fugit iure harum accusantium a
+                quae. Error
+                temporibus nostrum ullam alias perspiciatis tenetur dolorum, voluptate magni voluptatem reprehenderit
+                voluptas
+                placeat?
+            </p>
+
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa corrupti fugit iure harum accusantium a
+                quae. Error
+                temporibus nostrum ullam alias perspiciatis tenetur dolorum, voluptate magni voluptatem reprehenderit
+                voluptas
+                placeat?
+            </p>
+            <div id="r-p">
+                <h3>BFC-2</h3>
+                <div id="r-p-block">
+                    2
+                </div>
+            </div>
+            <div id="r-p-1">
+                <div id="r-p-1-block">
+                    <h3>BFC-3</h3>
+                    3
+                </div>
+            </div>
+        </div>
+        <footer>
+            Copyright &copy; Henryhe
+        </footer>
+    </div>
+</body>
+
+</html>

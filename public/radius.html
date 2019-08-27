@@ -1,0 +1,84 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HenryHE|Radius</title>
+
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .hw-content {
+            position: absolute;
+            padding: 50px;
+            width: 80%;
+            height: 500px;
+            left: 6%;
+            background-color: grey;
+            box-shadow: 0 2px 50px 5px black;
+        }
+
+        .hw-circle {
+            margin: 10px;
+            // background-color: skyblue;
+            background: radial-gradient(transparent 30%, red, orange, yellow, green, blue, indigo, violet);
+            background: linear-gradient(to right, #ff0000, orange, yellow, green, blue, indigo, violet );
+            float: left;
+        }
+
+        #hw-circle-1 {    
+            width: 200px;
+            height: 200px;
+            border-radius: 100px;
+            background: radial-gradient(transparent 30%, red, orange, yellow, green, blue, indigo, violet);
+        }
+
+        #hw-circle-2 {    
+            width: 200px;
+            height: 200px;
+            border-radius: 50px;
+            background: radial-gradient(transparent 30%, red, orange, yellow, green, blue, indigo, violet);
+        }
+
+        #hw-circle-3 {    
+            width: 200px;
+            height: 100px;
+            border-radius: 100px 100px 0 0 ;
+        }
+
+        #hw-circle-4 {    
+            width: 200px;
+            height: 100px;
+            border-radius: 0 0 100px 100px;
+            margin-top: 110px;
+        }
+        #hw-circle-5 {    
+            width: 100px;
+            height: 200px;
+            border-radius: 100px  0 0 100px;
+        }
+
+        #hw-circle-6 {    
+            width: 100px;
+            height: 200px;
+            border-radius: 0 100px 100px 0;
+            margin-top: 110px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="hw-content">
+        <div id="hw-circle-1" class="hw-circle"></div>
+        <div id="hw-circle-2" class="hw-circle"></div>
+        <div id="hw-circle-3" class="hw-circle"></div>
+        <div id="hw-circle-4" class="hw-circle"></div>
+        <div id="hw-circle-5" class="hw-circle"></div>
+        <div id="hw-circle-6" class="hw-circle"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Layout-1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-width: 1000px;
+        }
+
+        header,
+        footer {
+            height: 80px;
+            background-color: violet;
+            width: 100%;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+        }
+
+        footer {
+            height: 320px;
+            /* display: none; */
+        }
+
+        #container {
+            /* position: relative; */
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #left {
+            /* width: 200px; */
+            flex: 1;
+            height: 400px;
+            background-color: transparent;
+        }
+
+        #right {
+            flex: 1;
+            /* width: 400px; */
+            height: 400px;
+            background-color: transparent;
+        }
+
+        #center {
+            width: 800px;
+            /* flex: 1; */
+            min-height: 800px;
+            ;
+
+            margin: 40px auto;
+            /* background-color: tan; */
+        }
+
+        #content {
+            background-color: white;
+            border: 1px solid rgba(0, 0, 0, .07);
+            box-shadow: 0 6px 10px -6px rgba(0, 0, 0, .07);
+            height: 100%;
+            border-radius: 5px;
+        }
+
+        .content-head {
+            text-align: center;
+            margin: 20px auto;
+        }
+
+        ul li {
+            list-style: none;
+            padding: 0 32px;
+            transition: all ease 1s;
+        }
+
+        ul li:hover {
+            background-color: rgba(0, 0, 0, .72);
+            color: white;
+        }
+
+        nav.top {
+            width: 240px;
+            height: 60px;
+            margin-left: 200px;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: space-around;
+            line-height: 60px;
+        }
+
+        .parent {
+            width: 80%;
+            height: 400px;
+            margin: 40px auto;
+            position: relative;
+            background-color: darkcyan;
+        }
+
+        .child {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: hotpink;
+            left: 50%;
+            /* top: 50%; */
+            transform: translate(-50%, 50%);
+            /* margin-left: -100px; */
+            /* margin-top: -100px; */
+        }
+
+        .operate {
+            margin: .8rem auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            width: 80%;
+        }
+
+        .col {
+            width: 33%;
+            flex: 1;
+        }
+
+        .op-item {
+            width: 80%;
+            background-color: green;
+            margin: .8rem auto;
+            border-radius: 10px 10px;
+            box-shadow: 0 20px 12px -8px green;
+        }
+
+        .loading {
+            width: 80%;
+            margin: .8rem auto;
+            text-align: center;
+        }
+
+        .loading img {
+            box-shadow: 0 20px 20px -10px #9ac7ce;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="top">
+            <ul class="menu">
+                <li>Home</li>
+                <li>Blog</li>
+                <li>About</li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="container">
+        <div id="left">
+        </div>
+        <div id="center">
+            <div id="content">
+                <div class="content-head">
+                    <h1>Layout</h1>
+
+                    <div class="parent">
+                        <div class="child"></div>
+                    </div>
+
+                    <div class="operate">
+                        <div id="col1" class="col">
+                            <p class="op-item" style="height: 200px"></p>
+                        </div>
+                        <div id="col2" class="col">
+                            <p class="op-item" style="height: 300px"></p>
+                        </div>
+                        <div id="col3" class="col">
+                            <p class="op-item" style="height: 100px"></p>
+                        </div>
+                    </div>
+
+                    <div class="loading">
+                        <img src=""
+                            data-src="https://images.unsplash.com/photo-1552800694-4d518f028b89?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
+                            alt="lazy-img" width="100%" height="400">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="right">
+        </div>
+    </div>
+
+    <footer>
+
+    </footer>
+    <script>
+        window.onscroll = function (e) {
+            // console.info(document.documentElement.scrollTop, document.body.scrollTop, document.documentElement.clientHeight, document.body.clientHeight)
+
+            const scroll_distance = document.documentElement.scrollTop || document.body.scrollTop;
+            const scene_height = document.documentElement.clientHeight || document.body.clientHeight;
+
+            // 哪一列是最短的 会最先出发加载
+
+            const target = document.querySelector('.loading img');
+
+            const { height, el } = getColsMin();
+            // 屏幕外元素进入屏幕内 准备加载
+            if (height < scroll_distance + scene_height) {
+                // add node
+                target.setAttribute('src', target.getAttribute('data-src'));
+                // addNodeToElement(el);
+                throttle(function () {
+                    addNodeToElement(el);
+                })
+            }
+
+            // if (scroll_distance >= getTopDis(target)) {
+            //     target.style.backgroundColor = 'red';
+            // } else {
+            //     target.style.backgroundColor = 'pink';
+            // }
+
+            // if (document.body.clientHeight - (document.documentElement.clientHeight + scroll_distance) <= 100) {
+            //     // bottom check
+            //     // const loading = document.querySelector('loading');
+            //     // loading.style.display = 'block';
+            //     console.info('bottom')
+
+            //     document.querySelector('footer').style.backgroundColor = 'black';
+            // } else {
+            //     document.querySelector('footer').style.backgroundColor = 'violet'
+            // }
+
+        }
+
+        function addNodeToElement(el) {
+            const p = document.createElement('p');
+            p.className = 'op-item';
+
+            p.style.height = Math.floor(Math.random(.8, 1) * 400) + 'px';
+            el.appendChild(p);
+        }
+
+        function getColsMin() {
+            var e = document.querySelector('#col1').lastElementChild; // 计算最后一个元素
+            // var min = e.offsetHeight + getTopDis(e);
+            var min = e.offsetHeight + e.offsetTop;
+
+            var minEl = '1'
+            for (let index = 2; index < 4; index++) {
+                const el = document.querySelector('#col' + index).lastElementChild;
+                // console.info(el)
+                // if (el.offsetHeight + getTopDis(el) < min) {
+                //     min = el.offsetHeight + getTopDis(el);
+                //     minEl = index;
+                // }
+
+                if (el.offsetHeight + el.offsetTop < min) {
+                    min = el.offsetHeight + (el.offsetTop);
+                    minEl = index;
+                }
+            }
+
+            return {
+                height: min,
+                el: document.querySelector('#col' + minEl)
+            }
+        }
+
+        /*
+        * 递归找出绝对高度
+        */
+        function getTopDis(el) {
+            var top = 0;
+            // if (!el) return top;
+
+            do {
+            } while ((el = el.offsetParent).nodeName !== 'BODY');
+            return top;
+        }
+
+        /**
+        * 节流
+        */
+        let timer = null;
+        function throttle(fn) {
+            clearTimeout(timer);
+
+            setTimeout(() => {
+                fn.apply(this, arguments);
+            }, 100);
+        }
+    </script>
+</body>
+
+</html>

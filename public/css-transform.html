@@ -1,0 +1,144 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transform Box</title>
+    <style>
+        .banner-box {
+            transition: transform .2s linear;
+            margin-top: 8%;
+            width: 40%;
+            height: 60%;
+            background-color: rgb(196, 67, 91);
+            box-shadow: 0 0 45px 10px rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+            transform-style: preserve-3d;
+            /* animation: my-rotate 5s infinite; */
+            /* flex */
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .banner-content {
+            text-align: center;
+            padding-top: 50px;
+            font-size: 4em;
+            border-radius: 10px;
+            width: 65%;
+            height: 65%;
+            background-color: rgb(135, 235, 193);
+            margin-top: 8%;
+            transform: translateZ(40px);
+        }
+
+        .banner-perspective {
+            perspective: 400;
+            /* 不支持 只支持 webkit替代 */
+            -webkit-perspective: 400;
+
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* ↗ ↘ ↙ ↖ */
+        /**
+        * JQuery 获取鼠标坐标进行rotate(), 具有现行关系
+        */
+        @keyframes my-rotate {
+            0% {
+                transform: rotateY(-6deg) rotateX(-6deg);
+            }
+            25% {
+                transform: rotateX(-6deg) rotateY(6deg);
+            }
+            50% {
+                transform: rotateX(6deg) rotateY(6deg);
+            }
+            75% {
+                transform: rotateX(6deg) rotateY(-6deg);
+            }
+            100% {
+                transform: rotateX(-6deg) rotateY(-6deg);
+            }
+        }
+    </style>
+    <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>    
+</head>
+
+<body>
+    <div class="banner-perspective">
+        <div class="banner-box">
+            <!-- <h1>天</h1> -->
+            <!-- <div class="banner-content"></div> -->
+            <span class="banner-content">Mouse on Me</span>
+        </div>
+    </div>
+    <script>
+        console.log(jQuery)
+        var obj = $('.banner-box')
+
+        var width = obj.width()
+        var height = obj.height()
+        var top_left_pos = {x: obj.offset().left, y: obj.offset().top}
+        var right_bottom_pos = {x: top_left_pos.x+width, y: top_left_pos.y+height}
+        var center = {x: top_left_pos.x+width/2, y: top_left_pos.y+height/2}
+        console.log(top_left_pos, right_bottom_pos)
+        
+
+        $('.banner-box').mousemove(function (event) {
+            var rotateRate = 5
+            var rotateValueX = rotateRate/(width/2) // x axis
+            var rotateValueY = rotateRate/(height/2)
+            // $('span').text(event.pageX + ' | ' + event.pageY )
+
+            var value1 = 0, value2 = 0;
+
+            /** 处理两个分区 x y */
+            if (event.pageX > top_left_pos.x && event.pageX < center.x) {
+                    /** x */
+                    value1 = rotateValueX*(-1)*event.pageX+15
+                    value2 = rotateValueY*(-1)*event.pageY+8
+            } else if (event.pageX > center.x && event.pageX < right_bottom_pos.x) {
+                    /* x*/
+                    value1 = rotateValueX*event.pageX-20
+                    value2 = rotateValueY*(-1)*event.pageY+8       
+            }
+
+            /** 
+            * 处理四个象限
+            * 按照象限做拟合更加平滑舒服
+             */ 
+            // if (event.pageX > top_left_pos.x && event.pageX < center.x) {
+            //     if (event.pageY > top_left_pos.y && event.pageY < center.y) {
+            //         /* mouse on ↖ 象限*/
+            //         value1 = rotateValueX*(-1)*event.pageX+15
+            //         value2 = rotateValueY*(-1)*event.pageY+8
+            //     } else {
+            //         /* mouse on ↘ 象限*/
+            //         value1 = rotateValueX*(-1)*event.pageX+15 
+            //         value2 = rotateValueY*event.pageY+8
+            //     }
+            // } else if (event.pageX > center.x && event.pageX < right_bottom_pos.x) {
+            //     if (event.pageY > top_left_pos.y && event.pageY < center.y) {
+            //         /* mouse on 坐上 象限*/
+            //         value1 = rotateValueX*event.pageX-15
+            //         value2 = rotateValueY*(-1)*event.pageY+8
+            //     } else {
+            //         value1 = rotateValueX*event.pageX-15 
+            //         value2 = rotateValueY*event.pageY+8
+            //     }          
+            // }
+
+            // 鼠标坐标到中心点的函数关系
+            $('.banner-box').css('transform', 'rotateY(' + value1 + 'deg) rotateX(' + value2 +  'deg)')
+        })
+    </script>
+</body>
+
+</html>

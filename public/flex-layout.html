@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cookie Setting</title>
+    <meta charset="utf-8">
+    <!-- nothing -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"> 
+    <style type="text/css">
+    body {
+        margin: 0;
+        background-color: #ddd;
+        padding-bottom: 40px;
+    }
+
+    .band {
+        /*width: 100%;*/
+        /*border: 1px dotted blue;*/
+        margin: 0 auto;
+        /*margin-top: 60px;*/
+        min-height: 440px;
+        padding: 20px;
+        /* 
+			* set flexible
+			* 设置为flexible后该容器子元素float,clear,vertical-align属性失效
+			*/
+        display: flex;
+
+        /* row */
+        /*			flex-direction: row;
+			flex-wrap: nowrap;
+
+			flex-flow: row nowrap;*/
+        /* column */
+        flex-direction: column;
+        flex-wrap: nowrap;
+
+        flex-flow: column nowrap;
+
+        /*justify-content: space-around;*/
+        align-items: center;
+        /*align-content: space-between;*/
+        background-color: white;
+    }
+
+    .card {
+        /*margin: 0 auto;*/
+        margin: 10px;
+        width: 80%;
+        /*margin-top: 10px;*/
+        box-shadow: 0 5px 2px rgba(0,0,0,0.1);
+        border: 1px solid #ccc;
+        position: relative;
+        top: 0;
+        transition: all .1s ease-in;
+        padding-bottom: 20px;
+        /* item */
+    }
+
+    .card:hover {
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        border: 1px solid #eee;
+        top: -2px;
+    }
+
+    .card article {
+        font-family: fantasy;
+        font-size: 1.8em;
+        line-height: 1.8;
+        padding: 20px;
+    }
+
+    a {
+    	text-decoration: none;
+    	font-size: 1.2em;
+    	transition: all .2s ease-in;
+    }
+
+    a:hover {
+    	text-shadow: 1px 1px 21px purple;
+    }
+
+    .card h1 {
+        font-size: 3.6em;
+        padding: 20px;
+        margin: 0;
+        margin-bottom: -10px;
+        color: #333;
+    }
+
+    .card span {
+        font-weight: bold;
+        letter-spacing: .45em;
+        padding: 20px;
+    }
+
+    .thumb {
+        width: 100%;
+        height: auto;
+        margin-bottom: 5px;
+    }
+
+    .avartar {
+        width: 250px;
+        height: 250px;
+        border-radius: 250px 250px;
+        margin-top: 80px;
+        border: 5px solid rgba(255, 255, 255, 0.4);
+        transition: all .2s ease-in;
+    }
+
+    .avartar:hover {
+        border-width: 10px;
+        box-shadow: 0 5px 20px 5px #aaa;
+    }
+
+    .back {
+        background-image: url('https://raw.githubusercontent.com/Hongwing/Resume/source/images/me.jpg');
+        width: 100%;
+        height: 520px;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+
+    .box {
+    	background-color: white;
+    	box-shadow: 0 10px 5px rgba(0, 0, 0, 0.4);
+    	width: 85%; 
+    	margin: 0 auto;
+    	margin-top: 20px;
+    	padding: 5px;
+
+    	display: flex;
+    	flex-direction: row;
+    	flex-wrap: wrap;
+    }
+
+    .box-item {
+    	display: flex;
+    	flex-wrap: wrap;
+    	flex-direction: column;
+    	align-items: flex-start;
+
+    	min-height: 100%;
+    	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    	transition: all .2s ease-in;
+    	position: relative;
+    	margin: 5px;
+    	/* grid */
+    	flex: 1;
+    }
+
+    .box-item:nth-child(1) {
+    	flex: 0 0 49.3%;
+    	/*flex: 1 0;*/
+    }
+    /* media query */
+    @media only screen and (max-width: 610px) {
+    	.box-item:nth-child(1) {
+    		/*flex: 0 0 100%;*/
+    		flex: 1;
+    	}
+    }
+
+    @media only screen and (max-width: 1179px) {
+    	.box-item:nth-child(1) {
+    		flex: 1 0 90%;
+    	}
+/*    	.box-item:nth-child(2) {
+    		flex: 0;
+    	}
+    	.box-item:nth-child(3) {
+    		flex: 0;
+    	}*/
+    }
+
+    .box-item:nth-child(2) {
+    	/*flex: 0 0 50%;*/
+    	/*order: -1;*/
+    	/*flex: 0 0;*/
+    }
+
+    .box-item:nth-child(3) {
+    	/*flex: 0 0 25%;*/
+    	/*flex: 0 0;*/
+    }
+
+    .box-item:nth-child(4) {
+    	/*flex: 0 0 25%;*/
+    }
+
+    .box-item:nth-child(5) {
+    	/*flex: 0 0 25%*/
+    }
+
+    .box-item:nth-child(6) {
+    	/*flex: 0 0 25%;*/
+    }    
+
+    .box-item:nth-child(7) {
+    	/*flex: 0 0 25%;*/
+    }
+
+    .box-item:hover {
+    	top: -2px;
+    	box-shadow: 0 5px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .img {
+    	/*background-image: url('https://avatars1.githubusercontent.com/u/15857517?s=460&v=4');*/
+    	width: 100%;
+    	height: 300px;
+    	background-size: cover;
+    	background-position: center center;
+    	/* 图片位置固定，仿照知乎android */
+    	/*background-attachment: fixed;*/	
+    }
+
+    .img-bg1 {
+    	background-image: url('https://images.unsplash.com/photo-1462212018902-1ca14eec1bb2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9dd08460ca407097df5eda3974b6ff22&auto=format&fit=crop&w=750&q=80');
+    }
+
+    .img-bg2 {
+    	background-image: url('https://images.unsplash.com/photo-1445264918150-66a2371142a2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=79730c9ec106e3ccee026c648c624e5f&auto=format&fit=crop&w=400&q=80');
+    }
+
+    .img-bg3 {
+    	background-image: url('https://images.unsplash.com/photo-1506932248762-69d978912b80?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ec16626f05f513528df3332305d46503&auto=format&fit=crop&w=889&q=80');
+    }
+
+    .img-bg4 {
+    	background-image: url('https://images.unsplash.com/photo-1508018330160-e815ad260461?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1a210caa5e452acf2e0b94a28b20e4d9&auto=format&fit=crop&w=1400&q=80');
+    }
+
+    .img-bg5 {
+    	background-image: url('https://images.unsplash.com/photo-1482192596544-9eb780fc7f66?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bbe0bd1ecfaaa91394e0c9effb8b0415&auto=format&fit=crop&w=750&q=80');
+    }
+
+    .img-bg6 {
+    	background-image: url('https://images.unsplash.com/photo-1478033394151-c931d5a4bdd6?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=17d2798bb3e28902f41b86c4dc1892ad&auto=format&fit=crop&w=668&q=80');
+    }
+
+    .img-bg7 {
+    	background-image: url('https://images.unsplash.com/photo-1500440853933-3796d0182c96?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=03c932e3792f6dfd8713571f274f83f4&auto=format&fit=crop&w=667&q=80');
+    }
+
+    .box-item h1 {
+    	font-size: 30px;
+    	margin: 15px 20px;
+    	color: #333;
+    }
+
+    .box-item article {
+    	padding: 20px;
+    	line-height: 1.4;
+    	font-size: 1.6em;
+
+    	display: flex;
+    	flex-direction: column;
+    	justify-content: space-between;
+
+    	flex: 1;
+    }
+
+    .box-item p {
+    	line-height: 1.4;
+    }
+
+    .box-item span {
+    	font-size: 12px;
+    	font-weight: bold;
+    	color: #999;
+    	text-transform: uppercase;
+    	letter-spacing: .05em;
+    	margin: 10px 20px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="band" style="padding: 1px;">
+        <!-- 	<form id="cookieForm" action="#">
+		<h1> Enter your name: <input type="text" id="nameField"> </h1>
+	    </form> -->
+        <div class="card" style="width: 100%; background-color: white; text-align: center;margin: 0;">
+            <div class="back">
+                <img src="https://images.unsplash.com/photo-1463194537334-3940784aa69a?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=11c9de209a65e8eb9b5f868a9f8d5be2&auto=format&fit=crop&w=750&q=80" class="avartar">
+            </div>
+            <h1>The Art</h1>
+            <article>
+                Love You More than The World Ever !
+                <hr width="28%"> 爱你，胜过爱世界！
+            </article>
+            <span>&copy;HenryHE&nbsp;&nbsp;-&nbsp;&nbsp;CSS</span>
+        </div>
+    </div>
+    <div class="band" style="margin-top: 20px;">
+        <div class="card" style="text-align: center;">
+            <img src="https://images.unsplash.com/photo-1473773508845-188df298d2d1?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=926af9550991d432692392f14ee0b6f6&auto=format&fit=crop&w=667&q=80" class="thumb">
+            <h1>CSS3 - Flex Layout</h1>
+            <article>
+                <a target="blank" href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?^%$">阮一峰-Flex布局详细“教学”</a>
+            </article>
+            <article>
+                <a target="blank" href="https://www.w3cplus.com/css3/solving-problems-with-css-grid-and-flexbox-the-card-ui.html">Flex布局Demo Practice</a>
+            </article>
+            <span>&copy;HenryHE</span>
+        </div>
+    </div>
+    <div class="box">
+    	<div class="box-item">
+    		<div class="img img-bg1"></div>
+    		<h1>International Artist Feature: Malaysia</h1>
+    		<article>
+    			Duis aute irure dolor in reprehenderit in voluptate velit esse vcillum dolore. 
+    		</article>
+    		<span>&copy;Henry HE</span>
+    	</div>
+
+    	<div class="box-item">
+    		<div class="img img-bg2"></div>
+    		<h1>International Artist Feature: Malaysia</h1>
+    		<article>
+    			Duis aute irure dolor in reprehenderit in voluptate velit esse vcillum dolore. 
+    		</article>
+    		<span>&copy;Henry HE</span>
+    	</div>
+
+    	<div class="box-item">
+    		<div class="img img-bg3"></div>
+    		<h1>International Artist Feature: Malaysia</h1>
+    		<article>
+    			Duis aute irure dolor in reprehenderit in voluptate velit esse vcillum dolore. 
+    		</article>
+    		<span>&copy;Henry HE</span>
+    	</div>
+
+    	<div class="box-item">
+    		<div class="img img-bg4"></div>
+    		<h1>International Artist Feature: Malaysia</h1>
+    		<article>
+    			Duis aute irure dolor in reprehenderit in voluptate velit esse vcillum dolore. 
+    		</article>
+    		<span>&copy;Henry HE</span>
+    	</div>
+
+    	<div class="box-item">
+    		<div class="img img-bg5"></div>
+    		<h1>International Artist Feature: Malaysia</h1>
+    		<article>
+    			Duis aute irure dolor in reprehenderit in voluptate velit esse vcillum dolore. 
+    		</article>
+    		<span>&copy;Henry HE</span>
+    	</div>
+
+    	<div class="box-item">
+    		<div class="img img-bg6"></div>
+    		<h1>International Artist Feature: Malaysia</h1>
+    		<article>
+    			Duis aute irure dolor in reprehenderit in voluptate velit esse vcillum dolore. 
+    		</article>
+    		<span>&copy;Henry HE</span>
+    	</div>
+
+    	<div class="box-item">
+    		<div class="img img-bg7"></div>
+    		<h1>International Artist Feature: Malaysia</h1>
+    		<article>
+    			Duis aute irure dolor in reprehenderit in voluptate velit esse vcillum dolore. 
+    		</article>
+    		<span>&copy;Henry HE</span>
+    	</div>
+
+    </div>
+    <script>
+    window.addEventListener("load", nameFieldInit, false)
+
+    function nameFieldInit() {
+        // alert('load successfully !')
+        // 如果cookie中已经存在读取cookie
+        var username = ""
+        if (document.cookie != "") {
+            console.log(document.cookie.split(';')[1].split('=')[1])
+            username = document.cookie.split(';')[1].split('=')[1] // cookie的第一段就是cookieValue
+
+            document.querySelector('#nameField').value = username
+            document.querySelector('#nameField').onblur = setCookie
+            document.querySelector('#cookieForm').onsubmit = setCookie
+
+            // document.getElementById('nameField').value = username
+            // document.getElementById('nameField').onblur = setCookie
+            // document.getElementById('cookieForm').onsubmit = setCookie
+        }
+    }
+
+    function setCookie() {
+        // 新用户cookie添加
+        var expireDate = new Date()
+        expireDate.setMonth(expireDate.getMonth() + 6)
+
+        // var username = document.querySelector('#nameField').value
+        var username = document.getElementById('nameField').value
+        console.log(username)
+        // 构造cookie
+        document.cookie = "username=" + username + ";expires=" + expireDate.toGMTString()
+
+        document.querySelector('#nameField').blur()
+        return false
+    }
+    </script>
+</body>
+
+</html>
