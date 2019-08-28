@@ -8,6 +8,7 @@
     style="height: 390px; margin-top: .5rem;"
     class="mb-2 card-pic"
   >
+    <b-card-text>{{"★★★★★☆☆☆☆☆".slice(5 - card.star, 10 - card.star)}}</b-card-text>
     <b-card-text>{{card.desc}}</b-card-text>
 
     <b-button

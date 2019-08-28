@@ -13,13 +13,13 @@
           <b-dropdown-item @click="handleChoosekey(item)" v-for="(item, index) in cardKeyList" :key="index+'key'" href="#">{{item}}</b-dropdown-item>
         </b-dropdown>
 
-        <b-button variant="primary" target="_blank" href="//github.com/Hongwing">@Henry He</b-button>
+        <b-button variant="primary" target="_blank" href="//github.com/Hongwing">&copy; Henry He</b-button>
       </b-jumbotron>
     </div>
 
     <!-- cardlist -->
     <b-row class="card-list" style="margin: 0">
-      <b-col lg="3" md="4" sm="6" v-for="(card, index) in cardlist" :key="index+'card'">
+      <b-col lg="3" md="4" sm="6" v-for="(card, index) in showlist" :key="index+'card'">
         <f-e-d-card :card="card"></f-e-d-card>
       </b-col>
     </b-row>
@@ -41,6 +41,11 @@ export default {
       cardKeyList: Object.keys(FEDConfig),
       cardlist: FEDConfig["2017"]
     };
+  },
+  computed: {
+    showlist(n) {
+      return n.cardlist.sort((a, b) => b.star - a.star)
+    }
   },
   mounted() {
       this.cardlist = FEDConfig['2019']
