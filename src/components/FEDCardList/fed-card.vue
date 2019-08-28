@@ -8,6 +8,7 @@
     style="height: 390px; margin-top: .5rem;"
     class="mb-2 card-pic"
   >
+    <b-card-text>{{"★★★★★☆☆☆☆☆".slice(5 - card.star, 10 - card.star)}}</b-card-text>
     <b-card-text>{{card.desc}}</b-card-text>
 
     <b-button
@@ -20,6 +21,19 @@
 </template>
 
 <script>
+const COMFORT = [
+  '19CAAD',
+  '8CC7B5',
+  'A0EEE1',
+  'BEE7E9',
+  'BEEDC7',
+  'D6D5B7',
+  'D1BA74',
+  'E6CEAC',
+  'ECAD9E',
+  'F4606C'
+]
+
 export default {
   name: "FEDCard",
   props: {
@@ -40,8 +54,10 @@ export default {
   },
   methods: {
     randomColor() {
-      const single = () => parseInt(Math.random(0, 256) * 256, 10).toString(16);
-      return `${single()}${single()}${single()}`;
+      // const single = () => parseInt(Math.random(0, 256) * 256, 10).toString(16);
+      const id = () => parseInt(Math.random(0, 10) * 10, 10)
+      // return `${single()}${single()}${single()}`;
+      return COMFORT[id()]
     },
     newImg() {
       return `//via.placeholder.com/600x300/${this.randomColor()}?text=F.E.D`
@@ -58,7 +74,7 @@ export default {
     bottom: 20px;
   }
   .card-img-top {
-    filter: blur(2px);
+    // filter: blur(2px);
   }
 }
 </style>
