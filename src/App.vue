@@ -24,8 +24,13 @@ export default {
   color: #2c3e50;
   /* margin-top: 60px; */
 }
-body::-webkit-scrollbar {
-  display: none;
-  width: 0 !important;
+::-webkit-scrollbar {
+  /* display: none; */
+  /* width: 0 !important; */
+  width: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #007bff, #19caad);
+  border-radius: 5px;
 }
 </style>
