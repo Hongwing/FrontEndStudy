@@ -113,6 +113,26 @@
             "tag": [],
             "active": true,
             "star": 3
+        },
+        {
+            "title": "React dva 🔥",
+            "desc": "dva create project about React",
+            "link": "http://github.com/Hongwing/React-dva-CRUD_Demo",
+            "tag": [
+                "react"
+            ],
+            "active": true,
+            "star": 5
+        },
+        {
+            "title": "JS Game 🎮",
+            "desc": "console game",
+            "link": "http://github.com/Hongwing/JS-Gamer",
+            "tag": [
+                "game"
+            ],
+            "active": true,
+            "star": 4
         }
     ],
     "2017": [
@@ -252,8 +272,18 @@
         },
         {
             "title": "Coursera Solution",
+            "desc": "Homework On Coursera",
+            "link": "http://hongwing.github.io/solutions/Module3/module3-solution",
+            "tag": [
+                "coursera"
+            ],
+            "active": true,
+            "star": 4
+        },
+        {
+            "title": "Learn F.E On Coursera",
             "desc": "Front-end Study On Coursera",
-            "link": "http://hongwing.github.io/solutions",
+            "link": "http://hongwing.github.io/lister/study/me.html",
             "tag": [
                 "coursera"
             ],
@@ -269,6 +299,56 @@
             ],
             "active": true,
             "star": 4
+        },
+        {
+            "title": "Flat App",
+            "desc": "Beautiful UI - FlatUI",
+            "link": "http://hongwing.github.io/FlatApp",
+            "tag": [
+                "UI"
+            ],
+            "active": true,
+            "star": 4
+        },
+        {
+            "title": "Idea Design Beautiful Site",
+            "desc": "Mocking Design",
+            "link": "http://hongwing.github.io/IdeaDesign",
+            "tag": [
+                "UI"
+            ],
+            "active": true,
+            "star": 4
+        },
+        {
+            "title": "Code Mirror",
+            "desc": "Meteor Framework 🚀",
+            "link": "http://github.com/Hongwing/TextCircle-codemirror",
+            "tag": [
+                "framework"
+            ],
+            "active": true,
+            "star": 4
+        },
+        {
+            "title": "Search Sources",
+            "desc": "Spider Python 🐛",
+            "link": "http://github.com/Hongwing/SearchSources/blob/master/engine.py",
+            "tag": [
+                "python"
+            ],
+            "active": true,
+            "star": 4
+        },
+        {
+            "title": "GA Algorithm",
+            "desc": "Implement GA Algorithm",
+            "link": "http://hongwing.github.io/home",
+            "tag": [
+                "python"
+            ],
+            "active": true,
+            "star": 3
         }
     ]
 }
