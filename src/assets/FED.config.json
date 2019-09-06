@@ -41,12 +41,12 @@
             "star": 0
         },
         {
-            "title": "Css Grid",
-            "desc": "Grid Layout",
-            "link": "grid_layout.html",
+            "title": "Glass Blur Effect",
+            "desc": "css magic effect, another shot",
+            "link": "effect/backdrop.html",
             "tag": [],
             "active": true,
-            "star": 0
+            "star": 3
         },
         {
             "title": "Fibonacci with UI",
@@ -133,6 +133,14 @@
             ],
             "active": true,
             "star": 4
+        },
+        {
+            "title": "Chatting with AUI ",
+            "desc": "chatting mobile demo",
+            "link": "/Chatting",
+            "tag": [],
+            "active": true,
+            "star": 3
         }
     ],
     "2017": [
@@ -259,6 +267,14 @@
             "tag": [],
             "active": false,
             "star": 0
+        },
+        {
+            "title": "OOP Homework ",
+            "desc": "homework of postgraduate",
+            "link": "/OOP",
+            "tag": [],
+            "active": true,
+            "star": 3
         }
     ],
     "2016": [

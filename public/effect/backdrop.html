@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Apple</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        header {
+            position: fixed;
+            width: 100%;
+            border-bottom: 1px solid rgba(0, 0, 0, .1);
+        }
+
+        .bg {
+            height: 100px;
+            padding: 0 20px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+        }
+
+        .bg div {
+            line-height: 100px;
+        }
+
+        .content {
+            padding: 80px;
+            padding-top: 100px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        p {
+            width: 23%;
+            height: 200px;
+            background: #0060e8c2;
+            margin: 10px 40px;
+            font-size: 1.3rem;
+            border-radius: 20px;
+        }
+
+        p:last-child:nth-child(3n+2) {
+            background: red;
+            margin-right: calc(23% + 200px);
+        }
+
+        @media screen and (max-width: 940px) {
+            p {
+                width: 18%;
+            }
+        }
+
+        @media screen and (max-width: 680px) {
+            p {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="bg">
+            <div>
+                <h1>HMusic</h1>
+            </div>
+        </div>
+    </header>
+    <div class="content">
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+    </div>
+</body>
+
+</html>
